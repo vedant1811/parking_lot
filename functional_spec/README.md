@@ -49,6 +49,6 @@ parking_lot/functional_spec $ PATH=$PATH:../bin bundle exec rspec spec/parking_l
 
 ## Implementation
 
-The ruby app is in the `functional_spec/app` dir.
+The ruby app is in the `functional_spec/lib/app` dir.
 
 The classes in `app/models` behave like `ActiveRecord` models. Instead of storing the data in SQL they store it in memory via class variables.
