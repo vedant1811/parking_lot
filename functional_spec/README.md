@@ -25,7 +25,7 @@ functional_spec $ bundle install # install dependencies
 ...
 Bundle complete! 4 Gemfile dependencies, 23 gems now installed.
 Use `bundle info [gemname]` to see where a bundled gem is installed.
-functional_spec $ 
+functional_spec $
 
 ```
 
@@ -45,3 +45,10 @@ You can run a specific test from `parking_lot/functional_spec` by providing the 
 ```
 parking_lot/functional_spec $ PATH=$PATH:../bin bundle exec rspec spec/parking_lot_spec.rb:5
 ```
+
+
+## Implementation
+
+The ruby app is in the `functional_spec/app` dir.
+
+The classes in `app/models` behave like `ActiveRecord` models. Instead of storing the data in SQL they store it in memory via class variables.
