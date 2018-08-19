@@ -1,9 +1,10 @@
-class ParingLot
+class ParkingLot
   def initialize(size)
-    @spots_remaining = size
+    @slots_remaining = size
   end
 
   def park(car)
+    slots = ParkingSlot
 
   end
 

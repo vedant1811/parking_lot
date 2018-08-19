@@ -10,12 +10,8 @@ class ParkingSlot < BaseModel
 
   end
 
-  def self.filled
-
-  end
-
-  def self.find_by_slot_number(slot_number)
-
+  def self.all
+    @@models
   end
 
   def initialize(slot_number)
