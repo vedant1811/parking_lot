@@ -1,4 +1,4 @@
-class ParkingSlot < BaseModel
+class ParkingSlot
   attr_reader :slot_number
   attr_accessor :car
 
@@ -11,7 +11,7 @@ class ParkingSlot < BaseModel
   end
 
   def self.all
-    @@models
+    @@models ||= []
   end
 
   def initialize(slot_number)
