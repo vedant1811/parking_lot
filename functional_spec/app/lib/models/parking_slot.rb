@@ -1,4 +1,8 @@
+require 'database/databaseable'
+
 class ParkingSlot
+  include Databaseable
+
   attr_reader :slot_number
   attr_accessor :car
 
@@ -10,14 +14,7 @@ class ParkingSlot
 
   end
 
-  def self.all
-    @@models ||= []
-  end
-
   def initialize(slot_number)
     @slot_number = slot_number
-
-    @@models ||= []
-    @@models << self
   end
 end

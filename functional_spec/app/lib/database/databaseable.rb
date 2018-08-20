@@ -9,6 +9,7 @@ module Databaseable
   # TODO: instead of this explicit call, should happen on `new`
   def save!
     table << self
+    self
   end
 
   def delete!
