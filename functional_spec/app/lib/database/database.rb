@@ -9,8 +9,8 @@ class Database
 
   # @return an Array
   def get_table(identifier)
-    @tables.fetch(identifier) do |key|
-      @tables[key] = []
+    @tables.fetch(identifier) do
+      @tables[identifier] = []
     end
   end
 
