@@ -7,11 +7,13 @@ class ParkingSlot
   attr_accessor :car
 
   def self.slot_numbers_for_cars_with_colour(colour)
-
+    all.select { |slot| slot.car&.colour == colour }
+        .map(&:slot_number)
   end
 
   def self.slot_number_for_registration_number(number)
-
+    all.find { |slot| slot.car&.registration_number == number }
+        &.slot_number
   end
 
   def initialize(slot_number)

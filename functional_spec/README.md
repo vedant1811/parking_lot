@@ -52,3 +52,7 @@ parking_lot/functional_spec $ PATH=$PATH:../bin bundle exec rspec spec/parking_l
 The ruby app is in the `functional_spec/lib/app` dir.
 
 The classes in `app/models` behave like `ActiveRecord` models. Instead of storing the data in SQL they store it in memory via class variables.
+
+All the code is written in TDD
+
+I have tried to use both Object Oriented and Functional Progamming. Classes try to model real world objects with only 1 reason to change. A few of the methods just call `filter`, `map` kind of functional operators and return the data.
