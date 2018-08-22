@@ -11,6 +11,12 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+PATH=$PWD:$PATH
+echo $PATH
+export PATH
+
+START_DIR=$PWD
+
 cd ../functional_spec
 bundle install
 
@@ -18,5 +24,10 @@ cd app
 echo 'running unit tests'
 rspec
 
-echo 'Setup complete!'
-echo 'Now you can run ./run_functional_tests or ./parking_lot'
+cd $START_DIR
+
+# open a subshell because the new PATH will not be persisted once this script ends
+echo 'Setup complete! Entering subshell'
+echo 'Now you can run `run_functional_tests` or `parking_lot`'
+echo 'enter `exit` to exit from subshell'
+bash --norc
