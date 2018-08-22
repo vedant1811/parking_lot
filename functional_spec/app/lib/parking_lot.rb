@@ -18,6 +18,7 @@ class ParkingLot
 
   # @return true if slot had a car, false otherwise
   def leave(slot_number)
+    slot_number = Integer slot_number
     slot = ParkingSlot.all.find { |slot| slot.slot_number == slot_number }
     return false unless slot
 

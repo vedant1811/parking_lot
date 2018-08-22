@@ -12,14 +12,14 @@ RSpec.describe 'Parking Lot', type: :aruba do
     stop_all_commands
     expect(command.output).to end_with("Allocated slot number: 1\n")
   end
-  
+
   it "can unpark a car" do
     command.write("park KA-01-HH-3141 Black\n")
     command.write("leave 1\n")
     stop_all_commands
     expect(command.output).to end_with("Slot number 1 is free\n")
   end
-  
+
   it "can report status" do
     command.write("park KA-01-HH-1234 White\n")
     command.write("park KA-01-HH-3141 Black\n")
@@ -34,6 +34,6 @@ Slot No.    Registration No    Colour
 EOTXT
 )
   end
-  
-  pending "add more specs as needed"
+
+  # other specs are in functional_spec/app/spec
 end

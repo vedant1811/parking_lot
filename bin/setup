@@ -12,7 +12,6 @@
 set -e
 
 PATH=$PWD:$PATH
-echo $PATH
 export PATH
 
 START_DIR=$PWD
