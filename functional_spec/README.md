@@ -10,30 +10,63 @@ This needs [Ruby to be installed](https://www.ruby-lang.org/en/documentation/ins
 
 ## Setup
 
-First, install [Ruby](https://www.ruby-lang.org/en/documentation/installation/). Then run the following commands under the `functional_spec` dir.
+First, install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) and bundler. Then run the following commands under the `bin` dir.
 
 ```
-functional_spec $ ruby -v # confirm Ruby present
+bin $ ruby -v # confirm Ruby present
 ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-darwin17]
-functional_spec $ gem install bundler # install bundler to manage dependencies
+bin $ gem install bundler # install bundler to manage dependencies
 Successfully installed bundler-1.16.1
 Parsing documentation for bundler-1.16.1
 Done installing documentation for bundler after 2 seconds
 1 gem installed
-functional_spec $ bundle install # install dependencies
+bin $
+
+```
+
+load the `setup` script:
+
+```
+bin $ source setup
 ...
 ...
 Bundle complete! 4 Gemfile dependencies, 23 gems now installed.
 Use `bundle info [gemname]` to see where a bundled gem is installed.
-functional_spec $
+running unit tests
+..............
 
+Finished in 0.00444 seconds (files took 0.07245 seconds to load)
+14 examples, 0 failures
+
+running functional tests
+.......
+
+Finished in 5.83 seconds (files took 0.12592 seconds to load)
+7 examples, 0 failures
+
+Setup complete! All tests passed
+Now you can run `run_functional_tests` or `parking_lot`
+bin $
 ```
 
 ## Usage
 
-You can run the full suite from `parking_lot` by doing
+You can run the full suite from any dir by doing
 ```
-parking_lot $ bin/run_functional_specs
+bin $ run_functional_specs
+```
+You can load the interactive mode of the program from any dir by doing
+```
+bin $ parking_lot
+```
+Entering a blank line will exit the program:
+
+```
+bin $ parking_lot
+create_parking_lot 3      
+Created a parking lot with 3 slots
+
+bin $
 ```
 
 You can run the full suite directly from `parking_lot/functional_spec` by doing
@@ -49,10 +82,12 @@ parking_lot/functional_spec $ PATH=$PATH:../bin bundle exec rspec spec/parking_l
 
 ## Implementation
 
-The ruby app is in the `functional_spec/lib/app` dir.
+The ruby app is in the `functional_spec/lib/app` dir. It has its own specs.
 
 The classes in `app/models` behave like `ActiveRecord` models. Instead of storing the data in SQL they store it in memory via class variables.
 
 All the code is written in TDD
 
-I have tried to use both Object Oriented and Functional Progamming. Classes try to model real world objects with only 1 reason to change. A few of the methods just call `filter`, `map` kind of functional operators and return the data.
+I have tried to use both Object Oriented and Functional Progamming:
+ - Classes try to model real world objects with only 1 reason to change.
+ - Methods without side-effects just call `filter`, `map` kind of functional operators in a chain

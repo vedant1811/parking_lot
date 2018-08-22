@@ -5,6 +5,7 @@ require 'status_presenter'
 
 ##
 # Each of the methods in the Controller calls methods in /app and prints the result
+# based on the return value
 module Controller
   def create_parking_lot(size)
     @parking_lot = ParkingLot.new size.to_i
