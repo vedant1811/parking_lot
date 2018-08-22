@@ -1,5 +1,3 @@
-$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
-
 require 'parking_lot'
 require 'models/car'
 require 'models/parking_slot'
@@ -7,17 +5,6 @@ require 'models/parking_slot'
 ##
 # Each of the methods in the Controller calls methods in /app and prints the result
 module Controller
-  # read from file or STDIN
-  def self.included(base)
-    while line = gets
-      break if line.chomp.empty?
-      words = line.split
-
-      # use meta programming to convert string into method calls with arguments
-      public_send *words
-    end
-  end
-
   def create_parking_lot(size)
     @parking_lot = ParkingLot.new size.to_i
 
@@ -66,6 +53,3 @@ module Controller
     end
   end
 end
-
-# run the program
-include Controller

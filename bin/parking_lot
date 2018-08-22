@@ -7,4 +7,4 @@
 
 # load 'app/controller.rb'
 project_bin_dir = File.join(File.dirname(File.expand_path(__FILE__)))
-load File.join(project_bin_dir, '..', 'functional_spec', 'app', 'controller.rb')
+load File.join(project_bin_dir, '..', 'functional_spec', 'app', 'main.rb')
