@@ -36,5 +36,9 @@ RSpec.describe ParkingSlot do
     it 'should return nil slot number for no car' do
       expect(ParkingSlot.slot_number_for_registration_number "regn:3").to eq nil
     end
+
+    it 'should return filled slots' do
+      expect(ParkingSlot.filled_slots.count).to eq 3
+    end
   end
 end

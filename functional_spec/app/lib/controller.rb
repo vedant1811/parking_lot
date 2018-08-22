@@ -1,6 +1,7 @@
 require 'parking_lot'
 require 'models/car'
 require 'models/parking_slot'
+require 'status_presenter'
 
 ##
 # Each of the methods in the Controller calls methods in /app and prints the result
@@ -30,7 +31,8 @@ module Controller
   end
 
   def status
-    # TODO: do
+    slots = ParkingSlot.filled_slots
+    print_slots slots
   end
 
   def registration_numbers_for_cars_with_colour(colour)

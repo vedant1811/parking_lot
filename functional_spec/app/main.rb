@@ -10,6 +10,6 @@ while line = gets
   break if line.chomp.empty?
   words = line.split
 
-  # use meta programming to convert string into method calls (with arguments) for Controller
+  # use meta programming to convert string into Controller method calls (with arguments)
   public_send *words
 end
