@@ -16,6 +16,10 @@ class ParkingSlot
         &.slot_number
   end
 
+  def self.filled_slots
+    
+  end
+
   def initialize(slot_number)
     @slot_number = slot_number
   end
