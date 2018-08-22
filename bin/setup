@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Add script to:
 # * Install dependencies
 # * Build/Compile
@@ -5,3 +7,16 @@
 #
 # After this is run, bin/parking_lot
 # should Just Work.
+
+# Exit immediately if a command exits with a non-zero status.
+set -e
+
+cd ../functional_spec
+bundle install
+
+cd app
+echo 'running unit tests'
+rspec
+
+echo 'Setup complete!'
+echo 'Now you can run ./run_functional_tests or ./parking_lot'
