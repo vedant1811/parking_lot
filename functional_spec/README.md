@@ -27,7 +27,7 @@ bin $
 load the `setup` script:
 
 ```
-bin $ source setup
+parking_lot $ bin/setup
 ...
 ...
 Bundle complete! 4 Gemfile dependencies, 23 gems now installed.
@@ -45,28 +45,28 @@ Finished in 5.83 seconds (files took 0.12592 seconds to load)
 7 examples, 0 failures
 
 Setup complete! All tests passed
-Now you can run `run_functional_tests` or `parking_lot`
-bin $
+Now you can run `bin/run_functional_tests` or `bin/parking_lot`
+parking_lot $
 ```
 
 ## Usage
 
-You can run the full suite from any dir by doing
+You can run the full suite by
 ```
-bin $ run_functional_specs
+parking_lot $ bin/run_functional_specs
 ```
-You can load the interactive mode of the program from any dir by doing
+You can load the interactive mode of the program by
 ```
-bin $ parking_lot
+parking_lot $ bin/parking_lot
 ```
 Entering a blank line will exit the program:
 
 ```
-bin $ parking_lot
+parking_lot $ bin/parking_lot
 create_parking_lot 3      
 Created a parking lot with 3 slots
 
-bin $
+parking_lot $
 ```
 
 You can run the full suite directly from `parking_lot/functional_spec` by doing
@@ -82,7 +82,17 @@ parking_lot/functional_spec $ PATH=$PATH:../bin bundle exec rspec spec/parking_l
 
 ## Implementation
 
-The ruby app is in the `functional_spec/lib/app` dir. It has its own specs.
+The ruby app is in the `functional_spec/app/lib` dir. It has its own specs. You can run it by running `rspec` in the `functional_spec/app` dir:
+
+    parking_lot $ cd functional_spec/app/
+    app $ rspec
+    ..............
+
+    Finished in 0.0044 seconds (files took 0.06989 seconds to load)
+    14 examples, 0 failures
+    app $
+
+
 
 The classes in `app/models` behave like `ActiveRecord` models. Instead of storing the data in SQL they store it in memory via class variables.
 

@@ -11,24 +11,19 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-PATH=$PWD:$PATH
-export PATH
+SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
-START_DIR=$PWD
-
-cd ../functional_spec
+cd $SCRIPT_PATH/../functional_spec
 bundle install
 
 cd app
 echo 'running unit tests'
 rspec
 
+cd ..
 echo 'running functional tests'
 echo
-run_functional_tests
+bundle exec rake spec:functional
 
-cd $START_DIR
-
-# open a subshell because the new PATH will not be persisted once this script ends
 echo 'Setup complete! All tests passed'
-echo 'Now you can run `run_functional_tests` or `parking_lot`'
+echo 'Now you can run `bin/run_functional_tests` or `bin/parking_lot`'
