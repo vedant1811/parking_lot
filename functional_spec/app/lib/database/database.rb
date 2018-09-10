@@ -1,4 +1,5 @@
 require 'singleton'
+require 'database/closest_findable_array'
 
 class Database
   include Singleton
@@ -7,10 +8,10 @@ class Database
     @tables = {}
   end
 
-  # @return an Array
+  # @return an empty ClosestFindArray
   def get_table(identifier)
     @tables.fetch(identifier) do
-      @tables[identifier] = []
+      @tables[identifier] = ClosestFindableArray.new
     end
   end
 

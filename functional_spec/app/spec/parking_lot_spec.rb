@@ -40,4 +40,28 @@ RSpec.describe ParkingLot do
       expect(@parking_lot.park('number 4', 'colour')).to eq 2
     end
   end
+
+  describe 'parking lot with 2 entires' do
+    before do
+      entries = {
+        'start' => 0,
+        'mid' => 9
+      }
+      @parking_lot = ParkingLot.new(20, entries)
+    end
+
+    it 'should park closest to start' do
+      expect(@parking_lot.park('car 1', 'red', 'start')).to eq 1
+      expect(@parking_lot.park('car 2', 'red', 'start')).to eq 2
+    end
+
+    it 'should park closest to mid' do
+      expect(@parking_lot.park('car 1', 'red', 'mid')).to eq 10
+      expect(@parking_lot.park('car 2', 'red', 'mid')).to eq 9
+    end
+
+    it 'should raise exception' do
+      expect { @parking_lot.park('car', 'colour', 'non-existant') }.to raise_error ArgumentError
+    end
+  end
 end
