@@ -1,11 +1,11 @@
 require 'parking_lot'
 
 RSpec.describe ParkingLot do
-  before do
-    @parking_lot = ParkingLot.new 3
-  end
-
   describe 'empty parking lot' do
+    before do
+      @parking_lot = ParkingLot.new 3
+    end
+
     it 'should park car' do
       expect(@parking_lot.park('number 1', 'colour')).to eq 1
       expect(Car.all.size).to eq 1
@@ -24,13 +24,14 @@ RSpec.describe ParkingLot do
 
   describe 'full parking lot with 5 cars,' do
     before do
+      @parking_lot = ParkingLot.new 5
       5.times do |i|
         @parking_lot.park("numer #{i}", 'colour')
       end
     end
 
     it 'should not park another car' do
-      expect(@parking_lot.park('number 4', 'colour')).to eq nil
+      expect(@parking_lot.park('number 6', 'colour')).to eq nil
     end
 
     it 'then 2 cars leave, should park in closest slot' do

@@ -2,7 +2,10 @@ require 'models/car'
 require 'models/parking_slot'
 
 class ParkingLot
-  def initialize(size)
+  # @param size: total number of slots
+  # @param entries: mapping of entry gate name to location. Location is the index of
+  # the slot that is closest to the entry gate
+  def initialize(size, entries = DEFAULT_ENTRIES)
     (0...size).each do |i|
       ParkingSlot.new(i + 1)
         .save!
@@ -37,4 +40,8 @@ private
     all_slots = ParkingSlot.all
     all_slots.find { |slot| slot.car == nil }
   end
+
+  DEFAULT_ENTRIES = {
+    one: 0
+  }
 end
