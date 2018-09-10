@@ -13,6 +13,7 @@ class Car
   end
 
   def initialize(registration_number, colour)
+    super()
     @registration_number = registration_number
     @colour = colour
   end

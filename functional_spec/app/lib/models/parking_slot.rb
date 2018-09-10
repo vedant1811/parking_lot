@@ -21,6 +21,7 @@ class ParkingSlot
   end
 
   def initialize(slot_number)
+    super()
     @slot_number = slot_number
   end
 end

@@ -1,15 +1,13 @@
 require 'database/database'
 
+# In any inluding class, be sure to call `super()` inside `initialize`
 module Databaseable
   def self.included(base)
     base.extend(ClassMethods)
   end
 
-  # needa to be called only on object create.
-  # TODO: instead of this explicit call, should happen on `new`
-  def save!
+  def initialize
     table << self
-    self
   end
 
   def delete!

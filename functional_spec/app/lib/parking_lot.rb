@@ -8,7 +8,6 @@ class ParkingLot
   def initialize(size, entries = DEFAULT_ENTRIES)
     (0...size).each do |i|
       ParkingSlot.new(i + 1)
-        .save!
     end
   end
 
@@ -17,7 +16,6 @@ class ParkingLot
     slot = first_empty_slot || return
 
     car = Car.new(number, colour)
-    car.save!
     slot.car = car
     slot.slot_number
   end
