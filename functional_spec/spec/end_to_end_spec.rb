@@ -8,6 +8,7 @@ RSpec.describe 'End To End Suite', type: :aruba do
   describe "full scenarios" do
     let(:commands) do
       [
+          "help\n",
           "create_parking_lot 6\n",
           "park KA-01-HH-1234 White\n",
           "park KA-01-HH-9999 White\n",
@@ -28,6 +29,14 @@ RSpec.describe 'End To End Suite', type: :aruba do
 
     let(:expected) do
       <<-EOTXT
+Enter any of the following commands:
+create_parking_lot
+leave
+park
+registration_numbers_for_cars_with_colour
+slot_number_for_registration_number
+slot_numbers_for_cars_with_colour
+status
 Created a parking lot with 6 slots
 Allocated slot number: 1
 Allocated slot number: 2
@@ -65,4 +74,3 @@ EOTXT
     end
   end
 end
-

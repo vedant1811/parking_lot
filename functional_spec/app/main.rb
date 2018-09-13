@@ -12,4 +12,6 @@ while line = gets
 
   # use meta programming to convert string into Controller method calls (with arguments)
   public_send *words
+
+  # TODO: handle incorrect commands
 end

@@ -1,3 +1,4 @@
+help
 create_parking_lot 6
 park KA-01-HH-1234 White
 park KA-01-HH-9999 White
