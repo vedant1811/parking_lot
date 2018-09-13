@@ -10,7 +10,6 @@ module Controller
   def help
     puts "Enter any of the following commands:"
     puts Controller.instance_methods
-            .reject { |method| method == :help }
             .sort
             .map { |method| "  #{method}" } # prefix 2 spaces
   end

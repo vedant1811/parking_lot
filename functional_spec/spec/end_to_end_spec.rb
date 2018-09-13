@@ -32,6 +32,7 @@ RSpec.describe 'End To End Suite', type: :aruba do
       <<-EOTXT
 Enter any of the following commands:
   create_parking_lot
+  help
   leave
   park
   registration_numbers_for_cars_with_colour
@@ -61,6 +62,7 @@ Not found
 no command such as: wrong_command
 Enter any of the following commands:
   create_parking_lot
+  help
   leave
   park
   registration_numbers_for_cars_with_colour
