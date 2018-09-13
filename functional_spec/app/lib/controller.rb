@@ -12,6 +12,7 @@ module Controller
     puts Controller.instance_methods
             .reject { |method| method == :help }
             .sort
+            .map { |method| "  #{method}" } # prefix 2 spaces
   end
 
   def create_parking_lot(size)

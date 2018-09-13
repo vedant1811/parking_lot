@@ -10,8 +10,12 @@ while line = gets
   break if line.chomp.empty?
   words = line.split
 
-  # use meta programming to convert string into Controller method calls (with arguments)
-  public_send *words
-
-  # TODO: handle incorrect commands
+  begin
+    # use meta programming to convert string into Controller method calls (with arguments)
+    public_send *words
+  rescue NoMethodError => e
+    puts "no command such as: #{e.name}"
+    help
+    puts "Or enter a blank line to exit"
+  end
 end

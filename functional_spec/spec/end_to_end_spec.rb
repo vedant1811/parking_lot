@@ -23,20 +23,21 @@ RSpec.describe 'End To End Suite', type: :aruba do
           "registration_numbers_for_cars_with_colour White\n",
           "slot_numbers_for_cars_with_colour White\n",
           "slot_number_for_registration_number KA-01-HH-3141\n",
-          "slot_number_for_registration_number MH-04-AY-1111\n"
+          "slot_number_for_registration_number MH-04-AY-1111\n",
+          "wrong_command abc xyz\n"
       ]
     end
 
     let(:expected) do
       <<-EOTXT
 Enter any of the following commands:
-create_parking_lot
-leave
-park
-registration_numbers_for_cars_with_colour
-slot_number_for_registration_number
-slot_numbers_for_cars_with_colour
-status
+  create_parking_lot
+  leave
+  park
+  registration_numbers_for_cars_with_colour
+  slot_number_for_registration_number
+  slot_numbers_for_cars_with_colour
+  status
 Created a parking lot with 6 slots
 Allocated slot number: 1
 Allocated slot number: 2
@@ -57,6 +58,16 @@ KA-01-HH-1234, KA-01-HH-9999, KA-01-P-333
 1, 2, 4
 6
 Not found
+no command such as: wrong_command
+Enter any of the following commands:
+  create_parking_lot
+  leave
+  park
+  registration_numbers_for_cars_with_colour
+  slot_number_for_registration_number
+  slot_numbers_for_cars_with_colour
+  status
+Or enter a blank line to exit
 EOTXT
     end
 
