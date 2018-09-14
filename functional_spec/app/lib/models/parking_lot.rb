@@ -23,6 +23,10 @@ class ParkingLot
       .size
   end
 
+  def total_slots
+    @slots.size
+  end
+
   # @return alloacted slot number (Integer) or nil
   def park(number, colour, entry_name = nil)
     slot = first_empty_slot(entry_name) || return
