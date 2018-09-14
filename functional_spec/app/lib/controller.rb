@@ -1,4 +1,4 @@
-require 'parking_lot'
+require 'models/parking_lot'
 require 'models/car'
 require 'models/parking_slot'
 require 'status_presenter'

@@ -1,7 +1,10 @@
+require 'database/databaseable'
 require 'models/car'
 require 'models/parking_slot'
 
 class ParkingLot
+  include Databaseable
+
   # @param size: total number of slots
   # @param entries: mapping of entry gate name to location. Location is the index
   # **(not slot_number)** of the slot that is closest to the entry gate
