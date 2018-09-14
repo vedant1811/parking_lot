@@ -9,9 +9,9 @@ require 'status_presenter'
 module Controller
   def help
     puts "Enter any of the following commands:"
-    puts Controller.instance_methods
-            .sort
-            .map { |method| "  #{method}" } # prefix 2 spaces
+    Controller.instance_methods
+      .sort
+      .each { |method| puts "  #{method}" } # prefix 2 spaces
   end
 
   def create_parking_lot(size)
