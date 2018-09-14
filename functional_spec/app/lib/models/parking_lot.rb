@@ -1,6 +1,7 @@
 require 'database/databaseable'
 require 'models/car'
 require 'models/parking_slot'
+require 'database/closest_findable_array'
 
 class ParkingLot
   include Databaseable
@@ -9,10 +10,17 @@ class ParkingLot
   # @param entries: mapping of entry gate name to location. Location is the index
   # **(not slot_number)** of the slot that is closest to the entry gate
   def initialize(size, entries = nil)
+    super()
     @entries = entries
+    @slots = ClosestFindableArray.new
     (0...size).each do |i|
-      ParkingSlot.new(i + 1)
+      @slots << ParkingSlot.new(i + 1)
     end
+  end
+
+  def availale_slots
+    @slots.select { |slot| slot.car == nil }
+      .size
   end
 
   # @return alloacted slot number (Integer) or nil
@@ -40,8 +48,7 @@ class ParkingLot
 private
   def first_empty_slot(entry_name)
     closest_index = closest_index_from(entry_name)
-    all_slots = ParkingSlot.all
-    all_slots.closest_find(closest_index) { |slot| slot.car == nil }
+    @slots.closest_find(closest_index) { |slot| slot.car == nil }
   end
 
   def closest_index_from(entry_name)
