@@ -1,10 +1,10 @@
+# A Parking Lot
+
+The `Hello World` for Low Level Design and Object Oriented Design
+
 # Functional Suite
 
-`functional_spec/` contains the Rspec/Aruba based automated testing suite that will validate the correctness of your program for the sample input and output.
-
-Please to add specs as needed when building your solution.
-
-We do not support Windows at this point in time. If you don't have access to an OSX or Linux machine, we recommend  setting up a Linux machine you can develop against using something like [VirtualBox](https://www.virtualbox.org/) or [Docker](https://docs.docker.com/docker-for-windows/#test-your-installation).
+`functional_spec/` contains the Rspec/Aruba based automated testing suite that validates the correctness of the program for the sample input and output.
 
 This needs [Ruby to be installed](https://www.ruby-lang.org/en/documentation/installation/), followed by some libraries. The steps are listed below.
 
